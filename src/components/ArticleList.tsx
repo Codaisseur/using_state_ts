@@ -19,9 +19,16 @@ export default function ArticleList() {
       const res = await axios.get("https://jsonplaceholder.typicode.com/posts?_limit=5");
     
       console.log("Got back:", res);
+      setArticles(res.data.map((item: any) => {
+        return {
+          id: item.id,
+          title: item.title,
+          content: item.body,
+        };
+      }));
     }
     doSomeDataFetching();
-  }, []);
+  }, [setArticles]);
 
   return (
     <div>

@@ -8,3 +8,4 @@
 7. Added `useEffect`s to the LikeCounter to see how they work
 8. Added simple example async effect
 9. Fetching data from JSON placeholder api w/ useEffect
+10. Saving the API's data to component local state
