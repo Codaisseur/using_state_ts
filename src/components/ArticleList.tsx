@@ -27,7 +27,7 @@ export default function ArticleList() {
     <div>
       <p>Here's a lovely list of articles, for your reading pleasure:</p>
       {articles.map(article => {
-        return <ArticleCard article={article} />
+        return <ArticleCard key={article.id} article={article} />
       })}
     </div>
   );

@@ -5,7 +5,7 @@ export default function AwesomeAnimals() {
     <div>
       {["Chicken", "Sloth", "Porcupine", "Killer whale", "Velociraptor"].map(
         (animal, index) => {
-          return <p>Awesomeness level {index+1}: {animal}</p>;
+          return <p key={index}>Awesomeness level {index+1}: {animal}</p>;
         }
       )}
     </div>
