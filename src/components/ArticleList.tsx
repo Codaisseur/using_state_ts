@@ -1,5 +1,7 @@
 // src/components/ArticleList.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Timeout from "await-timeout";
+
 import ArticleCard, { Article } from "./ArticleCard";
 
 export default function ArticleList() {
@@ -26,6 +28,15 @@ export default function ArticleList() {
   const clear = () => {
     setArticles([]);
   };
+
+  useEffect(() => {
+    async function waitForATimer() {
+      console.log("A");
+      await Timeout.set(2000); // time in milliseconds!
+      console.log("B");
+    }
+    waitForATimer();
+  }, []);
 
   return (
     <div>

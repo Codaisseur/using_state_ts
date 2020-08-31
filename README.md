@@ -6,3 +6,4 @@
 5. Fixed React's key warnings
 6. A button to clear all the articles
 7. Added `useEffect`s to the LikeCounter to see how they work
+8. Added simple example async effect
