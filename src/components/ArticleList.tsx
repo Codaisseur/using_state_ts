@@ -1,41 +1,26 @@
 // src/components/ArticleList.tsx
 import React, { useState, useEffect } from "react";
-import Timeout from "await-timeout";
+import axios from "axios";
 
 import ArticleCard, { Article } from "./ArticleCard";
 
 export default function ArticleList() {
-  const [articles, setArticles] = useState<Article[]>([
-    {
-      id: 1,
-      title: "What is React all about?",
-      content:
-        "React is all about one-way data flow, the Virtual DOM, and transpiling JSX.",
-    },
-    {
-      id: 2,
-      title: "A lovely kid",
-      content: "In fact, a kid is also the name of a baby goat!",
-    },
-    {
-      id: 3,
-      title: "On placeholder image URLs",
-      content:
-        "So yeah, you won't be able to look these images up. They're placeholders",
-    },
-  ]);
+  const [articles, setArticles] = useState<Article[]>([]);
 
   const clear = () => {
     setArticles([]);
   };
 
   useEffect(() => {
-    async function waitForATimer() {
-      console.log("A");
-      await Timeout.set(2000); // time in milliseconds!
-      console.log("B");
+    async function doSomeDataFetching() {
+      console.log("I'm gonna fetch some data!");
+    
+      // Getting back data from the net, through the wire, air, and the ocean:
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts?_limit=5");
+    
+      console.log("Got back:", res);
     }
-    waitForATimer();
+    doSomeDataFetching();
   }, []);
 
   return (
