@@ -23,8 +23,13 @@ export default function ArticleList() {
     },
   ]);
 
+  const clear = () => {
+    setArticles([]);
+  };
+
   return (
     <div>
+      <p><button onClick={clear}>Clear articles</button></p>
       <p>Here's a lovely list of articles, for your reading pleasure:</p>
       {articles.map(article => {
         return <ArticleCard key={article.id} article={article} />
